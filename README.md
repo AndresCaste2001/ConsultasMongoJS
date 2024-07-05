@@ -56,7 +56,7 @@
   
   ```javascript
   db.movies.find(
-    {genre: {$eq: "Ciencia Ficción"},
+    {genre: {$eq: "Ciencia Ficción"}},
     {name: 1}
   );
   ```
@@ -74,7 +74,7 @@
   
   ```javascript
   db.movies.find(
-    {"format": {"$elemMatch": {"copies": {$gt:100}}}},
+    {"format.copies": {$gt: 100}},
     {"name":1, "format.copies":1}
   )
   ```
@@ -84,7 +84,7 @@
   ```javascript
    db.movies.find(
   {"character.id_actor": 1},
-  {_id:0, name:1, character:1}
+  {"name":1, "character.id_actor":1}
   )
   ```
   
